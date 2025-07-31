@@ -128,10 +128,23 @@ const openMap = () => {
 
 /* Hero Section */
 .contact-hero {
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
   color: white;
   padding: 4rem 0;
   text-align: center;
+}
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(20,184,166,0.85) 0%, rgba(59, 246, 59, 0.747) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.contact-hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .page-title {

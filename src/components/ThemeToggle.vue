@@ -63,7 +63,7 @@ const toggleTheme = () => {
 }
 
 .dark .toggle-track {
-  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  background-color: black;
 }
 
 .toggle-thumb {

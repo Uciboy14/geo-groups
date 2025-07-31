@@ -22,10 +22,20 @@ import ParticleBackground from './ParticleBackground.vue'
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+.dark .app-layout {
+  background: var(--color-bg-dark);
+  color: var(--color-text-dark);
 }
 
 .main-content {
   flex: 1;
   padding-top: 70px; /* Account for fixed navbar */
+  background: transparent;
+}
+.dark .main-content {
+  background: transparent;
 }
 </style>

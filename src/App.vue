@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view />
+    <transition name="page-fade-slide" mode="out-in">
+      <router-view />
+    </transition>
     <CookieConsent />
   </div>
 </template>
@@ -16,5 +18,17 @@ import CookieConsent from './components/CookieConsent.vue'
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.page-fade-slide-enter-active, .page-fade-slide-leave-active {
+  transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+.page-fade-slide-enter-from, .page-fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(32px);
+}
+.page-fade-slide-enter-to, .page-fade-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>

@@ -63,16 +63,29 @@ const goToSchedulePickup = () => {
 }
 </script>
 
-<style scoped>
+<style>
 .geo-recycling {
   min-height: 100vh;
 }
 
 .recycling-hero {
-  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat !important;
   color: white;
   padding: 4rem 0;
   text-align: center;
+}
+.recycling-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(5,150,105,0.85) 0%, rgba(52,211,153,0.55) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.recycling-hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .container {

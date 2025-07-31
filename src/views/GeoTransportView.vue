@@ -74,10 +74,23 @@ import AppLayout from '@/components/AppLayout.vue'
 }
 
 .transport-hero {
-  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
   color: white;
   padding: 4rem 0;
   text-align: center;
+}
+.transport-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(124,58,237,0.85) 0%, rgba(59,130,246,0.55) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.transport-hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .container {

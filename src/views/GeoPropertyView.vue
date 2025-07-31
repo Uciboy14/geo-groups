@@ -53,10 +53,23 @@ import AppLayout from '@/components/AppLayout.vue'
 }
 
 .property-hero {
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
   color: white;
   padding: 4rem 0;
   text-align: center;
+}
+.property-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(30,64,175,0.85) 0%, rgba(59,130,246,0.55) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.property-hero .container {
+  position: relative;
+  z-index: 1;
 }
 
 .container {
