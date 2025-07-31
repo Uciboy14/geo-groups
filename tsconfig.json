@@ -1,5 +1,5 @@
 {
-  "files": [],
+  "exclude": ["eslint.config.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"
