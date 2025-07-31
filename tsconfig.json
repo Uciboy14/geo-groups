@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.base.json",
   "files": ["env.d.ts"],
   "references": [
     {
@@ -10,3 +11,4 @@
     }
   ]
 }
+
