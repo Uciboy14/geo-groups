@@ -3,6 +3,7 @@
     <AppLayout>
       <!-- Hero Section -->
       <div class="about-hero">
+        <div class="hero-background"></div>
         <div class="container">
           <h1 class="page-title">About Geo Groups</h1>
           <p class="page-subtitle">
@@ -188,10 +189,27 @@ defineOptions({
 
 /* Hero Section */
 .about-hero {
-  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
   color: white;
   padding: 4rem 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.8) 0%, rgba(16, 185, 129, 0.8) 100%),
+              url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+  z-index: 1;
+}
+
+.about-hero .container {
+  position: relative;
+  z-index: 2;
 }
 
 .page-title {

@@ -1,0 +1,73 @@
+/* src/assets/theme.css */
+
+:root {
+  /* Light Theme Variables */
+  --color-background: #ffffff;
+  --color-background-soft: #f9fafb;
+  --color-background-mute: #f3f4f6;
+
+  --color-border: #e5e7eb;
+  --color-border-hover: #d1d5db;
+
+  --color-heading: #111827;
+  --color-text: #374151;
+  --color-text-soft: #6b7280;
+
+  --color-primary: #10b981;
+  --color-primary-soft: rgba(16, 185, 129, 0.1);
+  --color-primary-hover: #059669;
+
+  --color-toggle-track: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+  --color-toggle-thumb: #ffffff;
+  --color-sun: #f59e0b;
+  --color-moon: #fbbf24;
+}
+
+html.dark {
+  /* Dark Theme Overrides */
+  --color-background: #0d1117; /* A very dark, almost black. Change to #000000 for pure black. */
+  --color-background-soft: #1f2937;
+  --color-background-mute: #374151;
+
+  --color-border: #374151;
+  --color-border-hover: #4b5563;
+
+  --color-heading: #f9fafb;
+  --color-text: #d1d5db;
+  --color-text-soft: #9ca3af;
+
+  --coloHir-primary-soft: rgba(16, 185, 129, 0.2);
+
+  --color-toggle-track: #1f2937;
+  --color-toggle-thumb: #374151;
+}
+
+/* Base body styles */
+body {
+  color: var(--color-text);
+  background-color: var(--color-background);
+  transition:
+    color 0.3s,
+    background-color 0.5s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-heading);
+}
+
+a {
+  color: var(--color-primary);
+}
+
+/* Generic component styles that depend on theme */
+.theme-toggle {
+  color: var(--color-heading);
+}
+.theme-toggle:hover {
+  background: var(--color-primary-soft);
+}

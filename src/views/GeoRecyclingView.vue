@@ -2,10 +2,11 @@
   <div class="geo-recycling">
     <AppLayout>
       <div class="recycling-hero">
+        <div class="hero-background"></div>
         <div class="container">
           <h1 class="page-title">Geo Recycling</h1>
           <p class="page-subtitle">
-            Sustainable waste management and recycling solutions for a greener future
+            Sustainable electronics waste management and recycling solutions for a greener future. Specializing in phone panels, circuit boards, and electronic devices.
           </p>
         </div>
       </div>
@@ -14,15 +15,15 @@
         <div class="container">
           <div class="services-grid">
             <div class="service-card">
-              <div class="service-icon">♻️</div>
-              <h3>Waste Collection</h3>
-              <p>Regular pickup services for recyclable materials from homes and businesses</p>
+              <div class="service-icon">📱</div>
+              <h3>Electronics Collection</h3>
+              <p>Pickup services for old phones, panels, circuit boards, and other e-waste from homes and businesses</p>
             </div>
 
             <div class="service-card">
-              <div class="service-icon">📱</div>
-              <h3>Smart Scheduling</h3>
-              <p>Easy online booking and flexible pickup scheduling options</p>
+              <div class="service-icon">🔬</div>
+              <h3>Safe Processing</h3>
+              <p>Environmentally responsible dismantling and recycling of electronic components</p>
             </div>
 
             <div class="service-card">
@@ -63,29 +64,34 @@ const goToSchedulePickup = () => {
 }
 </script>
 
-<style>
+<style scoped>
 .geo-recycling {
   min-height: 100vh;
 }
 
 .recycling-hero {
-  position: relative;
-  background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat !important;
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%),
+              url('@/assets/hero-recycling.jpg') center/cover no-repeat;
   color: white;
   padding: 4rem 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-.recycling-hero::before {
-  content: '';
+
+.hero-background {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(5,150,105,0.85) 0%, rgba(52,211,153,0.55) 100%);
-  z-index: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(5, 150, 105, 0.8) 0%, rgba(16, 185, 129, 0.8) 100%);
+  z-index: 1;
 }
+
 .recycling-hero .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .container {

@@ -55,21 +55,17 @@ const toggleTheme = () => {
 .toggle-track {
   width: 48px;
   height: 24px;
-  background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+  background: var(--color-toggle-track);
   border-radius: 12px;
   position: relative;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid transparent;
 }
 
-.dark .toggle-track {
-  background-color: black;
-}
-
 .toggle-thumb {
   width: 20px;
   height: 20px;
-  background: white;
+  background: var(--color-toggle-thumb);
   border-radius: 50%;
   position: absolute;
   top: 2px;
@@ -79,13 +75,12 @@ const toggleTheme = () => {
   align-items: center;
   justify-content: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  color: #f59e0b;
+  color: var(--color-sun);
 }
 
 .dark .toggle-thumb {
   left: calc(100% - 22px);
-  background: #1f2937;
-  color: #fbbf24;
+  color: var(--color-moon);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -131,15 +126,6 @@ const toggleTheme = () => {
   width: 100%;
   height: 100%;
   transition: 0s;
-}
-
-/* Dark mode styles for the toggle itself */
-:global(.dark) .theme-toggle {
-  color: #f3f4f6;
-}
-
-:global(.dark) .theme-toggle:hover {
-  background: rgba(16, 185, 129, 0.2);
 }
 
 @media (max-width: 768px) {

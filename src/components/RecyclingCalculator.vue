@@ -91,7 +91,9 @@ interface ImpactResult {
 
 const wasteItems = ref<WasteItem[]>([
   { name: 'Paper & Cardboard', amount: 0, unit: 'kg', co2PerUnit: 0.85, energyPerUnit: 4.5 },
-  { name: 'Plastic Bottles', amount: 0, unit: 'kg', co2PerUnit: 2.1, energyPerUnit: 6.8 },
+  { name: 'Phone Panels', amount: 0, unit: 'kg', co2PerUnit: 3.2, energyPerUnit: 8.5 },
+  { name: 'Circuit Boards', amount: 0, unit: 'kg', co2PerUnit: 4.1, energyPerUnit: 10.2 },
+  { name: 'Old Phones', amount: 0, unit: 'kg', co2PerUnit: 2.8, energyPerUnit: 7.6 },
   { name: 'Glass Containers', amount: 0, unit: 'kg', co2PerUnit: 0.3, energyPerUnit: 2.1 },
   { name: 'Aluminum Cans', amount: 0, unit: 'kg', co2PerUnit: 8.1, energyPerUnit: 14.0 },
   { name: 'Steel Cans', amount: 0, unit: 'kg', co2PerUnit: 1.5, energyPerUnit: 2.8 },

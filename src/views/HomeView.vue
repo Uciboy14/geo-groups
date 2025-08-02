@@ -3,6 +3,7 @@
     <AppLayout>
       <!-- Hero Section -->
       <div class="hero-section">
+        <div class="hero-background"></div>
         <div class="hero-content">
           <h1 class="hero-title">
             Welcome to <span class="highlight">Geo Groups</span>
@@ -117,6 +118,154 @@
         </div>
       </section>
 
+      <!-- Electronics Recycling Section -->
+      <section class="electronics-recycling-section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Comprehensive Electronics Recycling</h2>
+            <p class="section-subtitle">
+              Transform your electronic waste into environmental solutions. We specialize in safe, secure, and sustainable recycling of all types of electronic devices and components.
+            </p>
+          </div>
+
+          <!-- Recycling Categories -->
+          <div class="recycling-categories">
+            <div class="category-card">
+              <div class="category-icon">📱</div>
+              <h3>Mobile Devices</h3>
+              <ul>
+                <li>Smartphones & Tablets</li>
+                <li>Phone Panels & Screens</li>
+                <li>Batteries & Chargers</li>
+                <li>Accessories & Cables</li>
+              </ul>
+              <div class="category-stats">
+                <span class="stat">98% Recovery Rate</span>
+                <span class="stat">Zero Landfill</span>
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div class="category-icon">💻</div>
+              <h3>Computers & Laptops</h3>
+              <ul>
+                <li>Desktop & Laptop Computers</li>
+                <li>Circuit Boards & Processors</li>
+                <li>Hard Drives & Memory</li>
+                <li>Peripherals & Monitors</li>
+              </ul>
+              <div class="category-stats">
+                <span class="stat">95% Material Recovery</span>
+                <span class="stat">Secure Data Destruction</span>
+              </div>
+            </div>
+
+            <div class="category-card">
+              <div class="category-icon">🔌</div>
+              <h3>Electronic Components</h3>
+              <ul>
+                <li>Circuit Boards & Chips</li>
+                <li>Wiring & Connectors</li>
+                <li>Power Supplies</li>
+                <li>Electronic Sensors</li>
+              </ul>
+              <div class="category-stats">
+                <span class="stat">99% Component Recovery</span>
+                <span class="stat">Precious Metal Extraction</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recycling Process -->
+          <div class="recycling-process">
+            <h3 class="process-title">Our Recycling Process</h3>
+            <div class="process-steps">
+              <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Collection & Assessment</h4>
+                  <p>Secure pickup and thorough assessment of electronic waste for optimal processing</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Data Security</h4>
+                  <p>Complete data destruction and secure handling of sensitive information</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Dismantling</h4>
+                  <p>Careful disassembly to separate components for specialized recycling</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Material Recovery</h4>
+                  <p>Extraction of valuable materials including precious metals and rare earth elements</p>
+                </div>
+              </div>
+
+              <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  <h4>Certification</h4>
+                  <p>Complete documentation and certification of environmentally responsible disposal</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Environmental Impact -->
+          <div class="environmental-impact">
+            <h3 class="impact-title">Environmental Impact</h3>
+            <div class="impact-grid">
+              <div class="impact-item">
+                <div class="impact-icon">🌱</div>
+                <h4>Carbon Footprint Reduction</h4>
+                <p>Prevents harmful emissions from improper disposal and reduces mining demand</p>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon">💧</div>
+                <h4>Water Protection</h4>
+                <p>Prevents toxic chemicals from leaching into groundwater and water systems</p>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon">🏭</div>
+                <h4>Resource Conservation</h4>
+                <p>Recovers valuable materials reducing the need for new resource extraction</p>
+              </div>
+
+              <div class="impact-item">
+                <div class="impact-icon">🔄</div>
+                <h4>Circular Economy</h4>
+                <p>Supports sustainable business practices and closed-loop material systems</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call to Action for Recycling -->
+          <div class="recycling-cta">
+            <div class="cta-content">
+              <h3>Ready to Recycle Responsibly?</h3>
+              <p>Join thousands of businesses and individuals who trust us with their electronic waste</p>
+              <div class="cta-buttons">
+                <router-link to="/geo-recycling" class="recycling-btn primary">Start Recycling Today</router-link>
+                <router-link to="/contact" class="recycling-btn secondary">Get Free Quote</router-link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Testimonials Section -->
       <section class="testimonials-section">
         <div class="container">
@@ -175,7 +324,7 @@ import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 
 const bounceA = ref(true)
 const bounceB = ref(true)
-let bounceInterval: number | undefined
+let bounceInterval: ReturnType<typeof setInterval> | undefined
 let bounceCount = 0
 const maxBounces = 6 // 6 cycles (about 3 seconds)
 
@@ -333,8 +482,25 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%);
   padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(240, 253, 244, 0.9) 0%, rgba(220, 252, 231, 0.9) 50%, rgba(187, 247, 208, 0.9) 100%),
+              url('@/assets/recycle1.jpg') center/cover no-repeat;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
@@ -595,6 +761,272 @@ onUnmounted(() => {
   line-height: 1.6;
 }
 
+/* Electronics Recycling Section */
+.electronics-recycling-section {
+  padding: 5rem 0;
+  background: #f8fafc;
+}
+
+.recycling-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.category-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border: 1px solid #f3f4f6;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #10B981;
+}
+
+.category-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.category-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.category-card ul li {
+  margin-bottom: 0.5rem;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.category-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: #e0f2fe;
+  color: #10B981;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.recycling-process {
+  background: white;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 3rem;
+  border: 1px solid #f3f4f6;
+}
+
+.process-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.process-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px dashed #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.process-step:hover {
+  background: #f9fafb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0 -1rem;
+}
+
+.process-step:last-child {
+  border-bottom: none;
+}
+
+.step-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #10B981;
+  width: 30px;
+  text-align: center;
+  background: #e0f2fe;
+  border-radius: 50%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-content h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.step-content p {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.environmental-impact {
+  background: white;
+  border-radius: 1rem;
+  padding: 2.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 3rem;
+  border: 1px solid #f3f4f6;
+}
+
+.impact-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.impact-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f9fafb;
+  border-radius: 0.8rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.impact-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.impact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #10B981;
+}
+
+.impact-item h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.impact-item p {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.recycling-cta {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #10B981;
+}
+
+.recycling-cta .cta-content {
+  color: white;
+}
+
+.recycling-cta .cta-content h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.recycling-cta .cta-content p {
+  font-size: 1.125rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.recycling-cta .cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.recycling-btn {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.recycling-btn.primary {
+  background: white;
+  color: #10B981;
+  border: 2px solid white;
+}
+
+.recycling-btn.primary:hover {
+  background: #10B981;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.recycling-btn.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.recycling-btn.secondary:hover {
+  background: white;
+  color: #10B981;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* Testimonials Section */
 .testimonials-section {
   padding: 5rem 0;
@@ -788,6 +1220,25 @@ onUnmounted(() => {
   .features-grid,
   .testimonials-grid {
     grid-template-columns: 1fr;
+  }
+
+  .recycling-categories {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .recycling-process {
+    padding: 2rem;
+  }
+
+  .process-steps {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .cta-buttons {

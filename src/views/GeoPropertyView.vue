@@ -2,6 +2,7 @@
   <div class="geo-property">
     <AppLayout>
       <div class="property-hero">
+        <div class="hero-background"></div>
         <div class="container">
           <h1 class="page-title">Geo Property</h1>
           <p class="page-subtitle">
@@ -54,22 +55,27 @@ import AppLayout from '@/components/AppLayout.vue'
 
 .property-hero {
   position: relative;
-  background: url('https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
   color: white;
   padding: 4rem 0;
   text-align: center;
+  overflow: hidden;
 }
-.property-hero::before {
-  content: '';
+
+.hero-background {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(30,64,175,0.85) 0%, rgba(59,130,246,0.55) 100%);
-  z-index: 0;
-  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.8) 0%, rgba(30, 64, 175, 0.8) 100%),
+    url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop')
+      center/cover no-repeat;
+  z-index: 1;
 }
+
 .property-hero .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .container {
