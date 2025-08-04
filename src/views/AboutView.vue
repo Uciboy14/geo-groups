@@ -72,7 +72,7 @@
                     </svg>
                   </div>
                   <span>Long-term Success</span>
-                </div>
+            </div>
               </div>
             </div>
             <div class="mission-image" :class="{ 'mission-img-animate': missionVisible }">
