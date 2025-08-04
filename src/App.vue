@@ -1,15 +1,36 @@
 <template>
   <div id="app">
-    <transition name="page-fade-slide" mode="out-in">
-      <router-view />
+    <transition name="fade" mode="out-in">
+      <Loader v-if="isRouteLoading" />
+      <div v-else>
+        <transition name="page-fade-slide" mode="out-in">
+          <router-view />
+        </transition>
+        <CookieConsent />
+      </div>
     </transition>
-    <CookieConsent />
   </div>
 </template>
 
 <script setup lang="ts">
-// Main app component
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import Loader from './components/Loader.vue'
 import CookieConsent from './components/CookieConsent.vue'
+
+const isRouteLoading = ref(false)
+const router = useRouter()
+
+router.beforeEach((to, from, next) => {
+  isRouteLoading.value = true
+  next()
+})
+
+router.afterEach(() => {
+  setTimeout(() => {
+    isRouteLoading.value = false
+  }, 1200) // increased delay for better UX
+})
 </script>
 
 <style>
@@ -20,6 +41,7 @@ import CookieConsent from './components/CookieConsent.vue'
   color: #2c3e50;
 }
 
+/* Existing page transition */
 .page-fade-slide-enter-active, .page-fade-slide-leave-active {
   transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
 }
@@ -30,5 +52,13 @@ import CookieConsent from './components/CookieConsent.vue'
 .page-fade-slide-enter-to, .page-fade-slide-leave-from {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Loader fade transition */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
 </style>

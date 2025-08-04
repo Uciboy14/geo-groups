@@ -6,14 +6,14 @@
       <slot />
     </main>
     <Footer />
-    <FloatingActionButton />
+    <!--- -<FloatingActionButton /> -->
   </div>
 </template>
 
 <script setup lang="ts">
 import Navbar from './Navbar.vue'
 import Footer from './Footer.vue'
-import FloatingActionButton from './FloatingActionButton.vue'
+//import FloatingActionButton from './FloatingActionButton.vue'
 import ParticleBackground from './ParticleBackground.vue'
 </script>
 
@@ -24,6 +24,7 @@ import ParticleBackground from './ParticleBackground.vue'
   flex-direction: column;
   background: var(--color-bg-light);
   color: var(--color-text-light);
+  padding-top: 0; /* Remove padding - let hero sections handle positioning */
 }
 .dark .app-layout {
   background: var(--color-bg-dark);
@@ -32,10 +33,17 @@ import ParticleBackground from './ParticleBackground.vue'
 
 .main-content {
   flex: 1;
-  padding-top: 70px; /* Account for fixed navbar */
+  padding-top: 128px; /* Remove padding - navbar is fixed */
   background: transparent;
 }
 .dark .main-content {
   background: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-layout {
+    padding-top: 0; /* Remove padding */
+  }
 }
 </style>

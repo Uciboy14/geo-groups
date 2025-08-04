@@ -2,50 +2,63 @@
   <div class="home">
     <AppLayout>
       <!-- Hero Section -->
-      <div class="hero-section">
-        <div class="hero-background"></div>
+      <section class="hero-section">
+        <div class="hero-bg">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80" alt="Hero Background" />
+          <div class="hero-overlay"></div>
+        </div>
         <div class="hero-content">
-          <h1 class="hero-title">
-            Welcome to <span class="highlight">Geo Groups</span>
-          </h1>
+          <h1 class="hero-title">Geo Groups</h1>
           <p class="hero-subtitle">
-            Your comprehensive solution for property management, recycling services, and sustainable transport
+            Delivering smart, sustainable solutions for property, recycling, and transport.<br>
+            Keeping your business and the environment thriving every day.
           </p>
-          <div class="hero-buttons">
-            <router-link to="/geo-recycling" class="primary-button" :class="{ bounceUp: bounceA }">
-              Start Recycling
-            </router-link>
-            <router-link to="/geo-property" class="secondary-button" :class="{ bounceUp: bounceB }">
-              Explore Properties
-            </router-link>
+          <div class="hero-actions">
+            <router-link to="/contact" class="hero-btn hero-btn-primary">Schedule Pickup</router-link>
+            <router-link to="/geo-property" class="hero-btn hero-btn-secondary">View Projects</router-link>
           </div>
         </div>
-      </div>
+      </section>
 
       <!-- Services Overview Section -->
       <section class="services-section">
+        <div class="services-bg-pattern"></div>
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">
-              Comprehensive solutions for sustainable business operations
-            </p>
-          </div>
           <div class="services-grid">
-            <div
-              v-for="(service, idx) in [
-                { icon: '🏠', title: 'Geo Property', desc: 'Professional property management with sustainable development focus', link: '/geo-property' },
-                { icon: '♻️', title: 'Geo Recycling', desc: 'Eco-friendly recycling solutions for businesses and communities', link: '/geo-recycling' },
-                { icon: '🚚', title: 'Geo Transport', desc: 'Sustainable transportation and logistics services', link: '/geo-transport' }
-              ]"
-              :key="service.title"
-              class="service-card"
-              :class="{ 'service-animate': servicesVisible, [`service-delay-${idx}`]: servicesVisible }"
-            >
-              <div class="service-icon">{{ service.icon }}</div>
-              <h3>{{ service.title }}</h3>
-              <p>{{ service.desc }}</p>
-              <router-link :to="service.link" class="service-link">Learn More →</router-link>
+            <div class="service-card" :class="{ 'service-animate': servicesVisible, 'service-delay-0': servicesVisible }">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&q=80" alt="Geo Property" />
+                <div class="service-overlay"></div>
+              </div>
+              <div class="service-content">
+                <h3>Geo Property</h3>
+                <p>Professional property management with sustainable development focus. We help you build and manage properties that respect our environment.</p>
+                <router-link to="/geo-property" class="service-link">Learn More →</router-link>
+              </div>
+            </div>
+
+            <div class="service-card" :class="{ 'service-animate': servicesVisible, 'service-delay-1': servicesVisible }">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=400&q=80" alt="Geo Recycling" />
+                <div class="service-overlay"></div>
+              </div>
+              <div class="service-content">
+                <h3>Geo Recycling</h3>
+                <p>Eco-friendly recycling solutions for businesses and communities. Transform waste into valuable resources with our innovative processes.</p>
+                <router-link to="/geo-recycling" class="service-link">Learn More →</router-link>
+              </div>
+            </div>
+
+            <div class="service-card" :class="{ 'service-animate': servicesVisible, 'service-delay-2': servicesVisible }">
+              <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=400&q=80" alt="Geo Transport" />
+                <div class="service-overlay"></div>
+              </div>
+              <div class="service-content">
+                <h3>Geo Transport</h3>
+                <p>Sustainable transportation and logistics services. Reduce your carbon footprint with our green transport solutions.</p>
+                <router-link to="/geo-transport" class="service-link">Learn More →</router-link>
+              </div>
             </div>
           </div>
         </div>
@@ -54,9 +67,12 @@
       <!-- About Section -->
       <section class="about-section">
         <div class="container">
+          <div class="testimonials-header">
+            <div class="testimonials-badge">About Us</div>
+            <h2 class="testimonials-title">About Geo Groups</h2>
+          </div>
           <div class="about-content">
             <div class="about-text">
-              <h2>About Geo Groups</h2>
               <p class="about-description">
                 We are a forward-thinking company dedicated to sustainable business practices.
                 Our integrated approach combines property management, recycling services, and
@@ -84,234 +100,264 @@
         </div>
       </section>
 
-      <!-- Features Section -->
-      <section class="features-section">
+
+
+      <!-- How It Works Section -->
+      <section class="how-it-works-section">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Why Choose Geo Groups?</h2>
-            <p class="section-subtitle">
-              We combine innovation with sustainability to deliver exceptional results
-            </p>
-          </div>
-          <div class="features-grid">
-            <div class="feature-item">
-              <div class="feature-icon">🌍</div>
-              <h3>Environmental Focus</h3>
-              <p>All our services prioritize environmental sustainability and green practices</p>
+          <div class="how-it-works-content">
+            <!-- Left Side - Text and Buttons -->
+            <div class="how-it-works-text">
+              <div class="section-badge">How It Works</div>
+              <h2 class="section-title">A Simple Process For All Your Waste Management Needs</h2>
+              <p class="section-description">
+                Delivering smart waste solutions for homes, businesses & industries to keeping communities clean and protecting the environment every day.
+              </p>
+              <div class="section-buttons">
+                <router-link to="/contact" class="primary-btn">Schedule Pickup</router-link>
+
+              </div>
             </div>
-            <div class="feature-item">
-              <div class="feature-icon">⚡</div>
-              <h3>Innovation Driven</h3>
-              <p>Cutting-edge technology and modern solutions for optimal efficiency</p>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">🤝</div>
-              <h3>Expert Team</h3>
-              <p>Experienced professionals dedicated to delivering quality service</p>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon">📈</div>
-              <h3>Proven Results</h3>
-              <p>Track record of successful projects and satisfied clients</p>
+
+            <!-- Right Side - Process Steps -->
+            <div class="process-steps">
+              <div class="step-card">
+                <div class="step-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <h3>Request & Pickup</h3>
+                <p>Waste pickups are scheduled and collected from homes, businesses, or job sites.</p>
+              </div>
+
+              <div class="step-card">
+                <div class="step-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 3h15v13H1z"/>
+                    <path d="M16 8h4l3 3v5h-7V8z"/>
+                    <circle cx="5.5" cy="18.5" r="2.5"/>
+                    <circle cx="18.5" cy="18.5" r="2.5"/>
+                  </svg>
+                </div>
+                <h3>Transportation</h3>
+                <p>Waste is safely transported in specialized vehicles to treatment or disposal facilities.</p>
+              </div>
+
+              <div class="step-card">
+                <div class="step-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18"/>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/>
+                    <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    <path d="M10 11v6"/>
+                    <path d="M14 11v6"/>
+                  </svg>
+                </div>
+                <h3>Sorting & Processing</h3>
+                <p>Waste is sorted into types and processed for recycling, composting, or disposal.</p>
+              </div>
+
+              <div class="step-card">
+                <div class="step-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+                <h3>Disposal or Recycling</h3>
+                <p>Recyclables are reused, organics composted, and the rest safely disposed of or incinerated.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Electronics Recycling Section -->
-      <section class="electronics-recycling-section">
+      <!-- Mission Section -->
+      <section class="mission-section">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Comprehensive Electronics Recycling</h2>
-            <p class="section-subtitle">
-              Transform your electronic waste into environmental solutions. We specialize in safe, secure, and sustainable recycling of all types of electronic devices and components.
-            </p>
-          </div>
-
-          <!-- Recycling Categories -->
-          <div class="recycling-categories">
-            <div class="category-card">
-              <div class="category-icon">📱</div>
-              <h3>Mobile Devices</h3>
-              <ul>
-                <li>Smartphones & Tablets</li>
-                <li>Phone Panels & Screens</li>
-                <li>Batteries & Chargers</li>
-                <li>Accessories & Cables</li>
-              </ul>
-              <div class="category-stats">
-                <span class="stat">98% Recovery Rate</span>
-                <span class="stat">Zero Landfill</span>
-              </div>
+          <div class="mission-content">
+            <!-- Left Side - Mission Statement -->
+            <div class="mission-text">
+              <div class="mission-badge">Our Mission</div>
+              <h2 class="mission-title">Responsible Waste Disposal for a Healthier Tomorrow</h2>
             </div>
 
-            <div class="category-card">
-              <div class="category-icon">💻</div>
-              <h3>Computers & Laptops</h3>
-              <ul>
-                <li>Desktop & Laptop Computers</li>
-                <li>Circuit Boards & Processors</li>
-                <li>Hard Drives & Memory</li>
-                <li>Peripherals & Monitors</li>
-              </ul>
-              <div class="category-stats">
-                <span class="stat">95% Material Recovery</span>
-                <span class="stat">Secure Data Destruction</span>
+            <!-- Right Side - Mission Objectives -->
+            <div class="mission-objectives">
+              <div class="objective-item">
+                <div class="objective-icon">✓</div>
+                <p>Deliver efficient, eco-friendly waste collection, recycling, and disposal services.</p>
               </div>
-            </div>
 
-            <div class="category-card">
-              <div class="category-icon">🔌</div>
-              <h3>Electronic Components</h3>
-              <ul>
-                <li>Circuit Boards & Chips</li>
-                <li>Wiring & Connectors</li>
-                <li>Power Supplies</li>
-                <li>Electronic Sensors</li>
-              </ul>
-              <div class="category-stats">
-                <span class="stat">99% Component Recovery</span>
-                <span class="stat">Precious Metal Extraction</span>
+              <div class="objective-item">
+                <div class="objective-icon">✓</div>
+                <p>Promote sustainability through waste reduction, reuse, and recycling initiatives.</p>
+              </div>
+
+              <div class="objective-item">
+                <div class="objective-icon">✓</div>
+                <p>Ensure compliance with environmental regulations and best industry practices.</p>
+              </div>
+
+              <div class="objective-item">
+                <div class="objective-icon">✓</div>
+                <p>Educate communities on responsible waste management and environmental stewardship.</p>
+              </div>
+
+              <div class="objective-item">
+                <div class="objective-icon">✓</div>
+                <p>Utilize advanced technology to enhance waste management efficiency and sustainability.</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Recycling Process -->
-          <div class="recycling-process">
-            <h3 class="process-title">Our Recycling Process</h3>
-            <div class="process-steps">
-              <div class="process-step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                  <h4>Collection & Assessment</h4>
-                  <p>Secure pickup and thorough assessment of electronic waste for optimal processing</p>
-                </div>
-              </div>
-
-              <div class="process-step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                  <h4>Data Security</h4>
-                  <p>Complete data destruction and secure handling of sensitive information</p>
-                </div>
-              </div>
-
-              <div class="process-step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                  <h4>Dismantling</h4>
-                  <p>Careful disassembly to separate components for specialized recycling</p>
-                </div>
-              </div>
-
-              <div class="process-step">
-                <div class="step-number">4</div>
-                <div class="step-content">
-                  <h4>Material Recovery</h4>
-                  <p>Extraction of valuable materials including precious metals and rare earth elements</p>
-                </div>
-              </div>
-
-              <div class="process-step">
-                <div class="step-number">5</div>
-                <div class="step-content">
-                  <h4>Certification</h4>
-                  <p>Complete documentation and certification of environmentally responsible disposal</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Environmental Impact -->
-          <div class="environmental-impact">
-            <h3 class="impact-title">Environmental Impact</h3>
-            <div class="impact-grid">
-              <div class="impact-item">
-                <div class="impact-icon">🌱</div>
-                <h4>Carbon Footprint Reduction</h4>
-                <p>Prevents harmful emissions from improper disposal and reduces mining demand</p>
-              </div>
-
-              <div class="impact-item">
-                <div class="impact-icon">💧</div>
-                <h4>Water Protection</h4>
-                <p>Prevents toxic chemicals from leaching into groundwater and water systems</p>
-              </div>
-
-              <div class="impact-item">
-                <div class="impact-icon">🏭</div>
-                <h4>Resource Conservation</h4>
-                <p>Recovers valuable materials reducing the need for new resource extraction</p>
-              </div>
-
-              <div class="impact-item">
-                <div class="impact-icon">🔄</div>
-                <h4>Circular Economy</h4>
-                <p>Supports sustainable business practices and closed-loop material systems</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Call to Action for Recycling -->
-          <div class="recycling-cta">
-            <div class="cta-content">
-              <h3>Ready to Recycle Responsibly?</h3>
-              <p>Join thousands of businesses and individuals who trust us with their electronic waste</p>
-              <div class="cta-buttons">
-                <router-link to="/geo-recycling" class="recycling-btn primary">Start Recycling Today</router-link>
-                <router-link to="/contact" class="recycling-btn secondary">Get Free Quote</router-link>
-              </div>
-            </div>
-          </div>
+        <!-- Large Recycling Symbol Background -->
+        <div class="recycling-symbol-bg">
+          <svg width="300" height="300" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L22 8.5L12 15L2 8.5L12 2Z" fill="#69B31D" opacity="0.3"/>
+            <path d="M12 15L22 8.5L12 2L2 8.5L12 15Z" fill="#10B981" opacity="0.2"/>
+            <path d="M12 2L22 8.5L12 15L2 8.5L12 2Z" fill="#059669" opacity="0.1"/>
+          </svg>
         </div>
       </section>
 
       <!-- Testimonials Section -->
       <section class="testimonials-section">
         <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">
-              Trusted by businesses across the industry
-            </p>
+          <div class="testimonials-header">
+            <div class="testimonials-badge">Testimonials</div>
+            <h2 class="testimonials-title">Our Happy Customers</h2>
           </div>
-          <div class="testimonials-grid">
-            <div
-              v-for="(testimonial, idx) in [
-                { text: 'Geo Groups transformed our property management with their sustainable approach. Highly recommended!', name: 'Sarah Johnson', role: 'Property Manager, Green Estates', img: 'https://randomuser.me/api/portraits/women/44.jpg' },
-                { text: 'Their recycling solutions helped us achieve our sustainability goals while reducing costs.', name: 'Michael Chen', role: 'Operations Director, EcoCorp', img: 'https://randomuser.me/api/portraits/men/32.jpg' },
-                { text: 'Professional, reliable, and environmentally conscious. Exactly what we needed for our transport needs.', name: 'Emma Rodriguez', role: 'Logistics Manager, SustainLog', img: 'https://randomuser.me/api/portraits/women/65.jpg' }
-              ]"
-              :key="testimonial.name"
-              class="testimonial-card"
-              :class="{ 'testimonial-animate': testimonialsVisible, [`testimonial-delay-${idx}`]: testimonialsVisible }"
-            >
-              <div class="testimonial-content">
-                <p>"{{ testimonial.text }}"</p>
+
+          <div class="testimonials-carousel">
+            <div class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <div class="testimonial-profile">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael S." class="profile-img" />
+                <h4 class="customer-name">Michael S.</h4>
+                <span class="customer-role">Customer</span>
               </div>
-              <div class="testimonial-author">
-                <img class="testimonial-img" :src="testimonial.img" :alt="testimonial.name" />
-                <div class="author-info">
-                  <h4>{{ testimonial.name }}</h4>
-                  <span>{{ testimonial.role }}</span>
-                </div>
-              </div>
+              <p class="testimonial-text">
+                Working with this company has been a game changer for our business. Their waste collection is always reliable, and they took the time to understand our unique needs.
+              </p>
             </div>
+
+            <div class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <div class="testimonial-profile">
+                <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Robert L." class="profile-img" />
+                <h4 class="customer-name">Robert L.</h4>
+                <span class="customer-role">Customer</span>
+              </div>
+              <p class="testimonial-text">
+                Working with this company has been a game changer for our business. Their waste collection is always reliable, and they took the time to understand our unique needs.
+              </p>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <div class="testimonial-profile">
+                <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Jake M." class="profile-img" />
+                <h4 class="customer-name">Jake M.</h4>
+                <span class="customer-role">Customer</span>
+              </div>
+              <p class="testimonial-text">
+                Working with this company has been a game changer for our business. Their waste collection is always reliable, and they took the time to understand our unique needs.
+              </p>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <div class="testimonial-profile">
+                <img src="https://randomuser.me/api/portraits/men/89.jpg" alt="Alex P." class="profile-img" />
+                <h4 class="customer-name">Alex P.</h4>
+                <span class="customer-role">Customer</span>
+              </div>
+              <p class="testimonial-text">
+                Working with this company has been a game changer for our business. Their waste collection is always reliable, and they took the time to understand our unique needs.
+              </p>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <div class="testimonial-profile">
+                <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="David K." class="profile-img" />
+                <h4 class="customer-name">David K.</h4>
+                <span class="customer-role">Customer</span>
+              </div>
+              <p class="testimonial-text">
+                Working with this company has been a game changer for our business. Their waste collection is always reliable, and they took the time to understand our unique needs.
+              </p>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <div class="testimonial-profile">
+                <img src="https://randomuser.me/api/portraits/men/23.jpg" alt="Chris R." class="profile-img" />
+                <h4 class="customer-name">Chris R.</h4>
+                <span class="customer-role">Customer</span>
+              </div>
+              <p class="testimonial-text">
+                Working with this company has been a game changer for our business. Their waste collection is always reliable, and they took the time to understand our unique needs.
+              </p>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="quote-mark">"</div>
+              <div class="testimonial-profile">
+                <img src="https://randomuser.me/api/portraits/men/34.jpg" alt="Mark T." class="profile-img" />
+                <h4 class="customer-name">Mark T.</h4>
+                <span class="customer-role">Customer</span>
+              </div>
+              <p class="testimonial-text">
+                Working with this company has been a game changer for our business. Their waste collection is always reliable, and they took the time to understand our unique needs.
+              </p>
+            </div>
+          </div>
+
+          <!-- Pagination Dots -->
+          <div class="pagination-dots">
+            <div class="dot"></div>
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
           </div>
         </div>
       </section>
 
-      <!-- CTA Section -->
+            <!-- CTA Section -->
       <section class="cta-section">
+        <div class="cta-bg-pattern"></div>
         <div class="container">
-          <div class="cta-content">
-            <h2>Ready to Get Started?</h2>
-            <p>Join hundreds of businesses already working with Geo Groups</p>
+          <div class="cta-content" :class="{ 'cta-animate': ctaVisible }">
+            <h2 class="cta-title">Ready to Get Started?</h2>
+            <p class="cta-description">Join hundreds of businesses already working with Geo Groups</p>
             <div class="cta-buttons">
-              <router-link to="/contact" class="cta-primary">Contact Us</router-link>
-              <router-link to="/about" class="cta-secondary">Learn More</router-link>
+              <router-link to="/contact" class="cta-btn cta-btn-primary">
+                <span class="btn-text">Contact Us</span>
+                <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </router-link>
+              <router-link to="/about" class="cta-btn cta-btn-secondary">
+                <span class="btn-text">Learn More</span>
+                <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </router-link>
             </div>
           </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="cta-floating-elements">
+          <div class="floating-circle"></div>
+          <div class="floating-square"></div>
+          <div class="floating-triangle"></div>
         </div>
       </section>
     </AppLayout>
@@ -375,23 +421,44 @@ const stat2Target = 10000
 const stat3Target = 100
 
 const animateStats = () => {
-  // Animate stat1
-  const duration = 2500
+  const duration = 3000 // Increased duration for smoother animation
   const start = performance.now()
+
+  // Use easing function for smoother animation
+  const easeOutQuart = (t: number) => 1 - Math.pow(1 - t, 4)
+
+  // Throttle updates to prevent excessive re-renders
+  let lastUpdate = 0
+  const throttleInterval = 16 // ~60fps
+
   const animate = (now: number) => {
-    const progress = Math.min((now - start) / duration, 1)
-    stat1.value = Math.floor(progress * stat1Target)
-    stat2.value = Math.floor(progress * stat2Target)
-    stat3.value = Math.floor(progress * stat3Target)
+    const elapsed = now - start
+    const progress = Math.min(elapsed / duration, 1)
+    const easedProgress = easeOutQuart(progress)
+
+    // Only update if enough time has passed
+    if (now - lastUpdate >= throttleInterval) {
+      // Use Math.round instead of Math.floor for smoother transitions
+      stat1.value = Math.round(easedProgress * stat1Target)
+      stat2.value = Math.round(easedProgress * stat2Target)
+      stat3.value = Math.round(easedProgress * stat3Target)
+      lastUpdate = now
+    }
+
     if (progress < 1) {
       requestAnimationFrame(animate)
     } else {
+      // Ensure final values are exact
       stat1.value = stat1Target
       stat2.value = stat2Target
       stat3.value = stat3Target
     }
   }
-  requestAnimationFrame(animate)
+
+  // Add a small delay to prevent immediate start
+  setTimeout(() => {
+    requestAnimationFrame(animate)
+  }, 200)
 }
 
 const observeAbout = () => {
@@ -409,6 +476,8 @@ const observeAbout = () => {
   )
   observer.observe(section)
 }
+
+
 
 // Testimonials section animation
 const testimonialsVisible = ref(false)
@@ -428,6 +497,24 @@ const observeTestimonials = () => {
   observer.observe(section)
 }
 
+// CTA section animation
+const ctaVisible = ref(false)
+
+const observeCTA = () => {
+  const section = document.querySelector('.cta-section')
+  if (!section) return
+  const observer = new window.IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        ctaVisible.value = true
+        observer.disconnect()
+      }
+    },
+    { threshold: 0.2 }
+  )
+  observer.observe(section)
+}
+
 onMounted(() => {
   bounceA.value = true
   bounceB.value = false
@@ -437,6 +524,7 @@ onMounted(() => {
     observeServices()
     observeAbout()
     observeTestimonials()
+    observeCTA()
   })
 })
 
@@ -478,136 +566,180 @@ onUnmounted(() => {
 
 /* Hero Section */
 .hero-section {
-  min-height: calc(100vh - 70px);
+  position: relative;
+  min-height: calc(100vh - 118px); /* Subtract navbar height (48px + 70px) */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 0; /* Remove any top margin */
+  padding-top: 0; /* Remove top padding */
+  padding-bottom: 4rem;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; /* Start from the very top */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.7) blur(0px);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; /* Start from the very top */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(34,34,34,0.5) 0%, rgba(34,34,34,0.3) 60%, rgba(34,34,34,0.7) 100%);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.hero-title {
+  font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-family: 'Inter', 'Roboto', Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.15);
+  border: none;
+  outline: none;
+}
+
+.hero-btn-primary {
+  background: #69B31D;
+  color: #fff;
+  border: 2px solid #69B31D;
+}
+
+.hero-btn-primary:hover {
+  background: #fff;
+  color: #69B31D;
+  border: 2px solid #69B31D;
+}
+
+.hero-btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.hero-btn-secondary:hover {
+  background: #fff;
+  color: #69B31D;
+  border: 2px solid #69B31D;
+}
+
+/* Services Section */
+.services-section {
+  padding: 6rem 0;
+  background: #69B31D;
   position: relative;
   overflow: hidden;
 }
 
-.hero-background {
+.services-bg-pattern {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(240, 253, 244, 0.9) 0%, rgba(220, 252, 231, 0.9) 50%, rgba(187, 247, 208, 0.9) 100%),
-              url('@/assets/recycle1.jpg') center/cover no-repeat;
-  z-index: 1;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 60% 60%, rgba(105, 179, 29, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-.hero-content {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
   position: relative;
   z-index: 2;
 }
 
-.hero-content {
-  text-align: center;
-  max-width: 800px;
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #1f2937;
-  margin-bottom: 1.5rem;
-  line-height: 1.1;
-}
-
-.highlight {
-  color: #10B981;
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: #6b7280;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.primary-button {
-  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-}
-
-.primary-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-}
-
-.secondary-button {
-  background: white;
-  color: #10B981;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  border: 2px solid #10B981;
-  transition: all 0.2s ease;
-}
-
-.secondary-button:hover {
-  background: #10B981;
-  color: white;
-  transform: translateY(-2px);
-}
-
-/* Services Section */
-.services-section {
-  padding: 5rem 0;
-  background: white;
-}
-
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
+  margin-top: 2rem;
 }
 
 .service-card {
-  background: white;
-  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  transition: all 0.3s ease;
-  border: 1px solid #f3f4f6;
-  opacity: 1;
-  transform: none;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(40px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .service-animate {
   opacity: 1;
   transform: translateY(0);
-  animation: serviceFadeInUp 0.7s cubic-bezier(.4,2,.6,1) both;
+  animation: serviceFadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-.service-delay-0 {
-  animation-delay: 0.05s;
-}
-.service-delay-1 {
-  animation-delay: 0.25s;
-}
-.service-delay-2 {
-  animation-delay: 0.45s;
-}
+.service-delay-0 { animation-delay: 0.1s; }
+.service-delay-1 { animation-delay: 0.3s; }
+.service-delay-2 { animation-delay: 0.5s; }
 
 @keyframes serviceFadeInUp {
   0% {
@@ -621,43 +753,151 @@ onUnmounted(() => {
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
-.service-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+.service-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
 }
 
-.service-card h3 {
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.1);
+}
+
+.service-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to top, rgba(105, 179, 29, 0.9) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.service-content {
+  padding: 1.5rem;
+  color: white;
+}
+
+.service-content h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1f2937;
+  color: white;
   margin-bottom: 1rem;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.service-card p {
-  color: #6b7280;
+.service-content p {
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.6;
+  font-size: 0.95rem;
   margin-bottom: 1.5rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .service-link {
-  color: #10B981;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.2s ease;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .service-link:hover {
-  color: #059669;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(4px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-section {
+    padding: 4rem 0;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-image {
+    height: 180px;
+  }
+
+  .service-content {
+    padding: 1.25rem;
+  }
+
+  .service-content h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-section {
+    padding: 3rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .service-image {
+    height: 160px;
+  }
+
+  .service-content {
+    padding: 1rem;
+  }
+
+  .service-content h3 {
+    font-size: 1.125rem;
+  }
+
+  .service-content p {
+    font-size: 0.875rem;
+  }
 }
 
 /* About Section */
 .about-section {
-  padding: 5rem 0;
-  background: #f8fafc;
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(105, 179, 29, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(5, 150, 105, 0.03) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .about-content {
@@ -665,43 +905,62 @@ onUnmounted(() => {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-}
-
-.about-text h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #1f2937;
-  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
 }
 
 .about-description {
   font-size: 1.125rem;
   color: #6b7280;
   line-height: 1.7;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(105, 179, 29, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  will-change: transform; /* Optimize for animations */
 }
 
 .stat-item {
   text-align: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  background: rgba(105, 179, 29, 0.05);
+  transform: translateY(-2px);
 }
 
 .stat-number {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  color: #10B981;
+  color: #69B31D;
   margin-bottom: 0.5rem;
+  line-height: 1;
+  min-width: 80px; /* Prevent layout shifts */
+  display: inline-block;
+  text-align: center;
+  font-variant-numeric: tabular-nums; /* Use monospace numbers for consistent width */
+  transition: color 0.3s ease;
 }
 
 .stat-label {
   font-size: 0.875rem;
   color: #6b7280;
-  font-weight: 500;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .about-image {
@@ -711,6 +970,9 @@ onUnmounted(() => {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+  position: relative;
+  z-index: 2;
+  will-change: transform, opacity; /* Optimize for animations */
 }
 
 .about-img {
@@ -718,8 +980,15 @@ onUnmounted(() => {
   max-width: 520px;
   height: 340px;
   object-fit: cover;
-  border-radius: 1.2rem;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.13);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(105, 179, 29, 0.1);
+  transition: all 0.3s ease;
+}
+
+.about-img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
 .about-img-animate {
@@ -727,457 +996,537 @@ onUnmounted(() => {
   transform: translateY(0);
 }
 
-/* Features Section */
-.features-section {
-  padding: 5rem 0;
-  background: white;
+
+
+/* How It Works Section */
+.how-it-works-section {
+  padding: 6rem 0;
+  background: #1C4B41;
+  position: relative;
+  overflow: hidden;
 }
 
-.features-grid {
+.how-it-works-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.feature-item {
-  text-align: center;
-  padding: 2rem;
-}
-
-.feature-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.feature-item h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 1rem;
-}
-
-.feature-item p {
-  color: #6b7280;
-  line-height: 1.6;
-}
-
-/* Electronics Recycling Section */
-.electronics-recycling-section {
-  padding: 5rem 0;
-  background: #f8fafc;
-}
-
-.recycling-categories {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.category-card {
-  background: white;
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  text-align: center;
-  border: 1px solid #f3f4f6;
-  transition: all 0.3s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.category-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  color: #10B981;
-}
-
-.category-card h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 1rem;
-}
-
-.category-card ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 1.5rem;
-}
-
-.category-card ul li {
-  margin-bottom: 0.5rem;
-  color: #6b7280;
-  font-size: 1rem;
-}
-
-.category-stats {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.stat {
-  background: #e0f2fe;
-  color: #10B981;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.recycling-process {
-  background: white;
-  border-radius: 1rem;
-  padding: 2.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  margin-bottom: 3rem;
-  border: 1px solid #f3f4f6;
-}
-
-.process-title {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #1f2937;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.process-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.process-step {
-  display: flex;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px dashed #e5e7eb;
-  transition: all 0.3s ease;
 }
 
-.process-step:hover {
-  background: #f9fafb;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  margin: 0 -1rem;
-}
-
-.process-step:last-child {
-  border-bottom: none;
-}
-
-.step-number {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #10B981;
-  width: 30px;
-  text-align: center;
-  background: #e0f2fe;
-  border-radius: 50%;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.step-content h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 0.5rem;
-}
-
-.step-content p {
-  color: #6b7280;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.environmental-impact {
-  background: white;
-  border-radius: 1rem;
-  padding: 2.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  margin-bottom: 3rem;
-  border: 1px solid #f3f4f6;
-}
-
-.impact-title {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #1f2937;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.impact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.impact-item {
-  text-align: center;
-  padding: 1.5rem;
-  background: #f9fafb;
-  border-radius: 0.8rem;
-  border: 1px solid #e5e7eb;
-  transition: all 0.3s ease;
-}
-
-.impact-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.impact-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #10B981;
-}
-
-.impact-item h4 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-bottom: 0.5rem;
-}
-
-.impact-item p {
-  color: #6b7280;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.recycling-cta {
-  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-  border-radius: 1rem;
-  padding: 2.5rem;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid #10B981;
-}
-
-.recycling-cta .cta-content {
+.how-it-works-text {
   color: white;
 }
 
-.recycling-cta .cta-content h3 {
-  font-size: 2rem;
+.section-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 3rem;
   font-weight: 800;
-  margin-bottom: 0.5rem;
+  color: white;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
 }
 
-.recycling-cta .cta-content p {
+.section-description {
   font-size: 1.125rem;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
   margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.recycling-cta .cta-buttons {
+.section-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
-.recycling-btn {
+.primary-btn {
+  background: #69B31D;
+  color: white;
   padding: 1rem 2rem;
   border-radius: 0.5rem;
-  font-weight: 600;
-  font-size: 1.1rem;
   text-decoration: none;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-.recycling-btn.primary {
-  background: white;
-  color: #10B981;
-  border: 2px solid white;
-}
-
-.recycling-btn.primary:hover {
-  background: #10B981;
-  color: white;
+.primary-btn:hover {
+  background: #059669;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.recycling-btn.secondary {
-  background: transparent;
+.secondary-btn {
+  background: #374151;
   color: white;
-  border: 2px solid white;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.recycling-btn.secondary:hover {
-  background: white;
-  color: #10B981;
+.secondary-btn:hover {
+  background: #4b5563;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-btn svg {
+  color: #10b981;
+}
+
+/* Process Steps */
+.process-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.step-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+.step-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #69B31D;
+  border-radius: 50%;
+  color: #69B31D;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.step-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.step-card p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .how-it-works-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .section-buttons {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .how-it-works-section {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .step-card {
+    padding: 1.5rem;
+  }
+
+  .step-icon {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 /* Testimonials Section */
 .testimonials-section {
-  padding: 5rem 0;
-  background: #f8fafc;
+  padding: 4rem 0;
+  background: #f8fef6;
+  text-align: center;
 }
 
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.testimonials-header {
+  margin-bottom: 2rem;
+}
+
+.testimonials-badge {
+  color: #69B31D;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.testimonials-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.testimonials-carousel {
+  display: flex;
   gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 2rem;
 }
 
 .testimonial-card {
-  background: white;
-  padding: 2rem;
+  background: #fff;
   border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  border: 1px solid #f3f4f6;
-  opacity: 1;
-  transform: none;
-}
-
-.testimonial-animate {
-  opacity: 1;
-  transform: translateY(0);
-  animation: testimonialFadeInUp 0.7s cubic-bezier(.4,2,.6,1) both;
-}
-
-.testimonial-delay-0 {
-  animation-delay: 0.05s;
-}
-.testimonial-delay-1 {
-  animation-delay: 0.25s;
-}
-.testimonial-delay-2 {
-  animation-delay: 0.45s;
-}
-
-@keyframes testimonialFadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-.testimonial-content p {
-  font-size: 1.125rem;
-  color: #374151;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  font-style: italic;
-}
-
-.testimonial-author {
+  box-shadow: 0 2px 8px rgba(105,179,29,0.07);
+  padding: 2rem 1.5rem 2.5rem 1.5rem;
+  min-width: 340px;
+  max-width: 340px;
+  flex: 0 0 auto;
+  margin: 0 auto;
+  position: relative;
+  scroll-snap-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1rem;
 }
 
-.testimonial-img {
-  width: 48px;
-  height: 48px;
+.quote-mark {
+  color: #69B31D;
+  font-size: 2.5rem;
+  font-weight: 900;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.testimonial-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.profile-img {
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 2px 8px rgba(16,185,129,0.10);
+  margin-bottom: 0.5rem;
 }
 
-.author-info h4 {
-  font-size: 1rem;
-  font-weight: 600;
+.customer-name {
+  font-weight: 700;
   color: #1f2937;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.1rem;
 }
 
-.author-info span {
-  font-size: 0.875rem;
+.customer-role {
   color: #6b7280;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.testimonial-text {
+  color: #374151;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+  font-style: normal;
+}
+
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #d1fae5;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.dot.active {
+  background: #69B31D;
+}
+
+@media (max-width: 900px) {
+  .testimonials-carousel {
+    gap: 1rem;
+  }
+  .testimonial-card {
+    min-width: 280px;
+    max-width: 280px;
+    padding: 1.5rem 1rem 2rem 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonials-title {
+    font-size: 1.5rem;
+  }
+  .testimonial-card {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
 }
 
 /* CTA Section */
 .cta-section {
-  padding: 5rem 0;
-  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #1e3a8a 100%);
   color: white;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.cta-content h2 {
+.cta-bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 60% 60%, rgba(30, 64, 175, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+.cta-title {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.cta-content p {
+.cta-description {
   font-size: 1.125rem;
-  opacity: 0.9;
+  opacity: 0.95;
   margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .cta-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.cta-primary {
-  background: white;
-  color: #1e40af;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 2.5rem;
+  border-radius: 1rem;
+  font-weight: 700;
   font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.cta-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.cta-secondary {
-  background: transparent;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 0.5rem;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  border: 2px solid white;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 2px solid transparent;
 }
 
-.cta-secondary:hover {
-  background: white;
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cta-btn:hover::before {
+  left: 100%;
+}
+
+.cta-btn-primary {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   color: #1e40af;
-  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.cta-btn-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+}
+
+.cta-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.cta-btn:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+
+
+/* Floating Elements */
+.cta-floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.floating-circle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: 20%;
+  right: 10%;
+  animation: floatCircle 6s ease-in-out infinite;
+}
+
+.floating-square {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  transform: rotate(45deg);
+  bottom: 30%;
+  left: 5%;
+  animation: floatSquare 8s ease-in-out infinite;
+}
+
+.floating-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 52px solid rgba(255, 255, 255, 0.06);
+  top: 60%;
+  right: 20%;
+  animation: floatTriangle 7s ease-in-out infinite;
+}
+
+@keyframes floatCircle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+@keyframes floatSquare {
+  0%, 100% {
+    transform: translateY(0px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(225deg);
+  }
+}
+
+@keyframes floatTriangle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
 }
 
 /* Responsive Design */
@@ -1185,39 +1534,35 @@ onUnmounted(() => {
   .hero-title {
     font-size: 2.5rem;
   }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
+  .hero-section {
+    min-height: calc(100vh - 190px); /* Adjusted for mobile navbar height */
   }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
+  .hero-content {
+    padding: 0 1rem;
   }
-
-  .primary-button,
-  .secondary-button {
-    width: 100%;
-    max-width: 300px;
-    text-align: center;
+  .hero-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
   }
-
   .section-title {
     font-size: 2rem;
   }
-
   .about-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
   .stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
   }
 
   .services-grid,
-  .features-grid,
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
@@ -1226,6 +1571,8 @@ onUnmounted(() => {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
+
 
   .recycling-process {
     padding: 2rem;
@@ -1246,11 +1593,19 @@ onUnmounted(() => {
     align-items: center;
   }
 
-  .cta-primary,
-  .cta-secondary {
+  .cta-btn {
     width: 100%;
     max-width: 300px;
     text-align: center;
+    justify-content: center;
+  }
+
+  .cta-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-section {
+    min-height: calc(100vh - 155px); /* Adjusted for mobile top bar (100px) + navbar (55px) */
   }
 }
 
@@ -1266,6 +1621,47 @@ onUnmounted(() => {
   .section-title {
     font-size: 1.75rem;
   }
+
+  .hero-section {
+    min-height: calc(100vh - 150px); /* Adjusted for mobile top bar (100px) + navbar (50px) */
+  }
+
+  .about-section {
+    padding: 4rem 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.75rem;
+  }
+
+  .about-img {
+    height: 280px;
+  }
+
+  .cta-section {
+    padding: 4rem 0;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .cta-description {
+    font-size: 1.125rem;
+  }
+
+  .floating-circle,
+  .floating-square,
+  .floating-triangle {
+    display: none;
+  }
+
+
 }
 
 @keyframes bounceUp {
@@ -1298,4 +1694,139 @@ onUnmounted(() => {
 .bounceDown {
   animation: bounceDown 0.5s cubic-bezier(.4,2,.6,1);
 }
+
+/* Mission Section */
+.mission-section {
+  padding: 4rem 0;
+  background: #f0fdf4;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid #1f2937;
+  border-bottom: 4px solid #69B31D;
+}
+
+.mission-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+
+.mission-text {
+  color: #1f2937;
+}
+
+.mission-badge {
+  display: inline-block;
+  background: #69B31D;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.mission-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.mission-objectives {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.objective-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}
+
+.objective-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  background: #69B31D;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.objective-item p {
+  color: #374151;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Large Recycling Symbol Background */
+.recycling-symbol-bg {
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  opacity: 0.4;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.recycling-symbol-bg svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mission-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .mission-title {
+    font-size: 2rem;
+  }
+
+  .recycling-symbol-bg {
+    width: 200px;
+    height: 200px;
+    bottom: -25px;
+    right: -25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-section {
+    padding: 3rem 0;
+  }
+
+  .mission-title {
+    font-size: 1.75rem;
+  }
+
+  .objective-item p {
+    font-size: 0.875rem;
+  }
+
+  .recycling-symbol-bg {
+    width: 150px;
+    height: 150px;
+    bottom: -15px;
+    right: -15px;
+  }
+}
+
 </style>
