@@ -21,7 +21,7 @@ import CookieConsent from './components/CookieConsent.vue'
 const isRouteLoading = ref(false)
 const router = useRouter()
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((_to, _from, next) => {
   isRouteLoading.value = true
   next()
 })
