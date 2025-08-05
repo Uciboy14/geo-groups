@@ -2,7 +2,7 @@
   <div class="contact">
     <AppLayout>
       <!-- Hero Section -->
-      <section class="contact-hero">
+      <section class="contact-hero page-hero">
         <div class="hero-bg">
           <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1600&q=80" alt="Contact Hero Background" />
           <div class="hero-overlay"></div>
@@ -347,7 +347,7 @@ onUnmounted(() => {
 /* Hero Section */
 .contact-hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 100vh; /* Use full viewport height since spacing is handled by AppLayout */
   display: flex;
   align-items: center;
   justify-content: center;

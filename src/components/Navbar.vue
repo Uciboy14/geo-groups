@@ -66,73 +66,187 @@
 
     <!-- Main Navbar -->
     <nav class="navbar" :class="{ 'navbar-scrolled': isScrolled }">
-    <div class="navbar-container">
-      <!-- Logo -->
-      <div class="navbar-logo">
-        <router-link to="/" class="logo-link">
-          <div class="logo-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 2L20 8L26 10L20 12L16 18L12 12L6 10L12 8L16 2Z" fill="#10B981"/>
-              <circle cx="16" cy="16" r="12" stroke="#10B981" stroke-width="2" fill="none"/>
-              <path d="M8 20L12 24L20 24L24 20" stroke="#10B981" stroke-width="2" fill="none"/>
-            </svg>
-          </div>
+      <div class="navbar-container">
+        <!-- Logo -->
+        <div class="navbar-logo">
+          <router-link to="/" class="logo-link" @mouseenter="triggerLogoAnimation">
+            <div class="logo-icon" :class="{ 'logo-animate': logoAnimating }">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2L20 8L26 10L20 12L16 18L12 12L6 10L12 8L16 2Z" fill="#10B981"/>
+                <circle cx="16" cy="16" r="12" stroke="#10B981" stroke-width="2" fill="none"/>
+                <path d="M8 20L12 24L20 24L24 20" stroke="#10B981" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
             <span class="logo-text">Geo Groups</span>
-        </router-link>
-      </div>
+          </router-link>
+        </div>
 
-      <!-- Desktop Navigation -->
-      <div class="navbar-nav desktop-nav">
-          <router-link to="/geo-property" class="nav-link">
-            <span class="nav-icon">🏠</span>
-            Geo Property
+        <!-- Desktop Navigation -->
+        <div class="navbar-nav desktop-nav">
+          <router-link to="/geo-property" class="nav-link" @mouseenter="triggerNavHover">
+            <div class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9,22 9,12 15,12 15,22"/>
+              </svg>
+            </div>
+            <span class="nav-text">Geo Property</span>
+            <div class="nav-hover-effect"></div>
           </router-link>
-          <router-link to="/geo-recycling" class="nav-link">
-            <span class="nav-icon">♻️</span>
-            Geo Recycling
+
+          <router-link to="/geo-recycling" class="nav-link" @mouseenter="triggerNavHover">
+            <div class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3v7h7"/>
+                <path d="M21 21v-7h-7"/>
+                <path d="M21 3l-9 9"/>
+                <path d="M3 21l9-9"/>
+              </svg>
+            </div>
+            <span class="nav-text">Geo Recycling</span>
+            <div class="nav-hover-effect"></div>
           </router-link>
-          <router-link to="/geo-transport" class="nav-link">
-            <span class="nav-icon">🚚</span>
-            Geo Transport
+
+          <router-link to="/geo-transport" class="nav-link" @mouseenter="triggerNavHover">
+            <div class="nav-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13"/>
+                <polygon points="16,8 20,8 23,11 23,16 16,16 16,8"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/>
+                <circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </div>
+            <span class="nav-text">Geo Transport</span>
+            <div class="nav-hover-effect"></div>
           </router-link>
         </div>
 
         <!-- CTA Button -->
         <div class="navbar-cta">
           <router-link to="/contact" class="cta-button" @mouseenter="triggerShine">
-            Get Started
+            <span class="cta-text">Get Started</span>
+            <div class="cta-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12,5 19,12 12,19"/>
+              </svg>
+            </div>
             <span v-if="showShine" class="shine"></span>
           </router-link>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" @click="toggleMobileMenu" :class="{ 'active': isMobileMenuOpen }" aria-label="Toggle mobile menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
 
-      <!-- Mobile Menu Toggle -->
-      <button class="mobile-menu-toggle" @click="toggleMobileMenu" :class="{ 'active': isMobileMenuOpen }">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+      <!-- Mobile Navigation -->
+      <div class="mobile-nav" :class="{ 'mobile-nav-open': isMobileMenuOpen }">
+        <div class="mobile-nav-header">
+          <h3>Navigation</h3>
+          <button class="mobile-close-btn" @click="closeMobileMenu" aria-label="Close menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" :class="{ 'mobile-nav-open': isMobileMenuOpen }">
-        <router-link to="/geo-property" class="mobile-nav-link" @click="closeMobileMenu">
-          <span class="nav-icon">🏠</span>
-          Geo Property
-        </router-link>
-        <router-link to="/geo-recycling" class="mobile-nav-link" @click="closeMobileMenu">
-          <span class="nav-icon">♻️</span>
-          Geo Recycling
-        </router-link>
-        <router-link to="/geo-transport" class="mobile-nav-link" @click="closeMobileMenu">
-          <span class="nav-icon">🚚</span>
-          Geo Transport
-        </router-link>
-        <router-link to="/contact" class="mobile-cta-button" @click="closeMobileMenu">
-          Get Started
-        </router-link>
+        <div class="mobile-nav-links">
+          <router-link to="/geo-property" class="mobile-nav-link" @click="closeMobileMenu">
+            <div class="mobile-nav-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9,22 9,12 15,12 15,22"/>
+              </svg>
+            </div>
+            <div class="mobile-nav-content">
+              <span class="mobile-nav-text">Geo Property</span>
+              <span class="mobile-nav-desc">Property management & development</span>
+            </div>
+            <div class="mobile-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9,18 15,12 9,6"/>
+              </svg>
+            </div>
+          </router-link>
+
+          <router-link to="/geo-recycling" class="mobile-nav-link" @click="closeMobileMenu">
+            <div class="mobile-nav-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3v7h7"/>
+                <path d="M21 21v-7h-7"/>
+                <path d="M21 3l-9 9"/>
+                <path d="M3 21l9-9"/>
+              </svg>
+            </div>
+            <div class="mobile-nav-content">
+              <span class="mobile-nav-text">Geo Recycling</span>
+              <span class="mobile-nav-desc">Waste management solutions</span>
+            </div>
+            <div class="mobile-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9,18 15,12 9,6"/>
+              </svg>
+            </div>
+          </router-link>
+
+          <router-link to="/geo-transport" class="mobile-nav-link" @click="closeMobileMenu">
+            <div class="mobile-nav-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="3" width="15" height="13"/>
+                <polygon points="16,8 20,8 23,11 23,16 16,16 16,8"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/>
+                <circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </div>
+            <div class="mobile-nav-content">
+              <span class="mobile-nav-text">Geo Transport</span>
+              <span class="mobile-nav-desc">Sustainable transportation</span>
+            </div>
+            <div class="mobile-nav-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9,18 15,12 9,6"/>
+              </svg>
+            </div>
+          </router-link>
+        </div>
+
+        <div class="mobile-nav-footer">
+          <router-link to="/contact" class="mobile-cta-button" @click="closeMobileMenu">
+            <span>Get Started</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12,5 19,12 12,19"/>
+            </svg>
+          </router-link>
+
+          <div class="mobile-quick-actions">
+            <button class="quick-action-btn" @click="makeCall">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Call Now</span>
+            </button>
+
+            <button class="quick-action-btn" @click="sendEmail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span>Email Us</span>
+            </button>
+          </div>
+        </div>
       </div>
     </nav>
-    </div>
+
+    <!-- Progress Bar -->
+    <div class="scroll-progress" :style="{ width: scrollProgress + '%' }"></div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -148,15 +262,38 @@ const isMounted = ref(false)
 const showShine = ref(true)
 const isNavbarVisible = ref(true)
 const lastScrollY = ref(0)
+const scrollProgress = ref(0)
+const logoAnimating = ref(false)
+
+const triggerLogoAnimation = () => {
+  if (logoAnimating.value) return
+  logoAnimating.value = true
+  setTimeout(() => { logoAnimating.value = false }, 600)
+}
+
+const triggerNavHover = (event: Event) => {
+  const target = event.currentTarget as HTMLElement
+  const effect = target.querySelector('.nav-hover-effect') as HTMLElement
+  if (effect) {
+    effect.style.transform = 'scaleX(1)'
+    setTimeout(() => {
+      effect.style.transform = 'scaleX(0)'
+    }, 300)
+  }
+}
 
 const triggerShine = () => {
-  if (showShine.value) return;
+  if (showShine.value) return
   showShine.value = true
   setTimeout(() => { showShine.value = false }, 1200)
 }
 
 const handleScroll = () => {
   const currentScrollY = window.scrollY
+  const windowHeight = document.documentElement.scrollHeight - window.innerHeight
+
+  // Calculate scroll progress
+  scrollProgress.value = (currentScrollY / windowHeight) * 100
 
   // Show navbar when scrolling to top
   if (currentScrollY <= 100) {
@@ -178,10 +315,24 @@ const handleScroll = () => {
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value
+  if (isMobileMenuOpen.value) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
+  }
 }
 
 const closeMobileMenu = () => {
   isMobileMenuOpen.value = false
+  document.body.style.overflow = ''
+}
+
+const makeCall = () => {
+  window.open('tel:+442012345678', '_blank')
+}
+
+const sendEmail = () => {
+  window.open('mailto:info@geogroups.com?subject=Inquiry from Geo Groups Website', '_blank')
 }
 
 onMounted(() => {
@@ -194,6 +345,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  document.body.style.overflow = ''
 })
 </script>
 
@@ -287,13 +439,39 @@ onUnmounted(() => {
 .navbar {
   background: transparent;
   height: 70px;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .navbar-scrolled {
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure navbar has solid background on mobile */
+@media (max-width: 768px) {
+  .navbar {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-scrolled {
+    background: rgba(255, 255, 255, 0.98);
+  }
+}
+
+/* Dark mode mobile navbar */
+@media (max-width: 768px) {
+  :global(.dark) .navbar {
+    background: rgba(17, 24, 39, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  :global(.dark) .navbar-scrolled {
+    background: rgba(17, 24, 39, 0.98);
+  }
 }
 
 .navbar-container {
@@ -319,26 +497,22 @@ onUnmounted(() => {
   transition: color 0.3s cubic-bezier(.4,2,.6,1);
 }
 
-.logo-link:hover .logo-icon {
-  animation: logo-bounce 0.6s cubic-bezier(.4,2,.6,1);
-}
-
-.logo-link:hover .logo-text {
-  color: #059669;
-  text-shadow: 0 0 8px #10B98155;
-}
-
-@keyframes logo-bounce {
-  0%   { transform: translateY(0); }
-  30%  { transform: translateY(-8px) scale(1.08); }
-  50%  { transform: translateY(2px) scale(0.98); }
-  70%  { transform: translateY(-4px) scale(1.04); }
-  100% { transform: translateY(0); }
-}
-
 .logo-icon {
   display: flex;
   align-items: center;
+  transition: all 0.3s ease;
+}
+
+.logo-icon.logo-animate {
+  animation: logo-bounce 0.6s cubic-bezier(.4,2,.6,1);
+}
+
+@keyframes logo-bounce {
+  0%   { transform: translateY(0) scale(1); }
+  30%  { transform: translateY(-8px) scale(1.08); }
+  50%  { transform: translateY(2px) scale(0.98); }
+  70%  { transform: translateY(-4px) scale(1.04); }
+  100% { transform: translateY(0) scale(1); }
 }
 
 .logo-text {
@@ -346,6 +520,12 @@ onUnmounted(() => {
   font-weight: 700;
   color: #10B981;
   letter-spacing: -0.025em;
+  transition: all 0.3s ease;
+}
+
+.logo-link:hover .logo-text {
+  color: #059669;
+  text-shadow: 0 0 8px #10B98155;
 }
 
 .navbar-nav {
@@ -357,20 +537,22 @@ onUnmounted(() => {
 .nav-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
   text-decoration: none;
   color: #374151;
   font-weight: 500;
   font-size: 0.95rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  transition: color 0.2s, background 0.2s;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
   position: relative;
+  overflow: hidden;
 }
 
 .nav-link:hover {
   color: #10B981;
   background: rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
 }
 
 .nav-link.router-link-active {
@@ -379,7 +561,28 @@ onUnmounted(() => {
 }
 
 .nav-icon {
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: #10B981;
+  transition: all 0.3s ease;
+}
+
+.nav-text {
+  font-weight: 600;
+}
+
+.nav-hover-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #10B981, #059669);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .navbar-cta {
@@ -390,16 +593,34 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #10B981 0%, #059669 100%);
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.75rem;
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cta-text {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-icon {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover .cta-icon {
+  transform: translateX(4px);
 }
 
 .cta-button .shine {
@@ -431,35 +652,9 @@ onUnmounted(() => {
   }
 }
 
-.cta-button:active {
-  transform: scale(0.97);
-}
-
-.cta-button::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255,255,255,0.4);
-  border-radius: 100%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  pointer-events: none;
-  transition: width 0.4s cubic-bezier(.4,2,.6,1), height 0.4s cubic-bezier(.4,2,.6,1), opacity 0.4s;
-}
-
-.cta-button:active::after {
-  width: 200%;
-  height: 200%;
-  opacity: 0.5;
-  transition: 0s;
-}
-
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
 }
 
 .mobile-menu-toggle {
@@ -470,6 +665,7 @@ onUnmounted(() => {
   cursor: pointer;
   padding: 0.5rem;
   gap: 4px;
+  transition: all 0.3s ease;
 }
 
 .mobile-menu-toggle span {
@@ -494,47 +690,125 @@ onUnmounted(() => {
 
 .mobile-nav {
   display: none;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  background: white;
-  border-top: 1px solid rgba(16, 185, 129, 0.1);
-  padding: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-30px) scaleY(0.95);
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 1001;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.35s cubic-bezier(.4,2,.6,1);
+  transition: all 0.3s ease;
 }
 
 .mobile-nav-open {
-  transform: translateY(0) scaleY(1);
   opacity: 1;
   pointer-events: auto;
+}
+
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: white;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.mobile-nav-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.mobile-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #6b7280;
+  transition: all 0.3s ease;
+}
+
+.mobile-close-btn:hover {
+  color: #10B981;
+  transform: scale(1.1);
+}
+
+.mobile-nav-links {
+  background: white;
+  padding: 1rem 0;
+  max-height: 60vh;
+  overflow-y: auto;
 }
 
 .mobile-nav-link {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   text-decoration: none;
   color: #374151;
-  font-weight: 500;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
-  margin-bottom: 0.5rem;
+  padding: 1.25rem 2rem;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.05);
 }
 
 .mobile-nav-link:hover {
+  background: rgba(16, 185, 129, 0.05);
   color: #10B981;
-  background: rgba(16, 185, 129, 0.1);
 }
 
 .mobile-nav-link.router-link-active {
-  color: #10B981;
   background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+}
+
+.mobile-nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 10px;
+  color: #10B981;
+  flex-shrink: 0;
+}
+
+.mobile-nav-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobile-nav-text {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.mobile-nav-desc {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.mobile-nav-arrow {
+  color: #d1d5db;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover .mobile-nav-arrow {
+  color: #10B981;
+  transform: translateX(4px);
+}
+
+.mobile-nav-footer {
+  background: white;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(16, 185, 129, 0.1);
 }
 
 .mobile-cta-button {
@@ -543,22 +817,69 @@ onUnmounted(() => {
   color: white;
   border: none;
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 1rem;
+  transition: all 0.3s ease;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .mobile-cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.mobile-quick-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.quick-action-btn {
+  flex: 1;
+  background: rgba(16, 185, 129, 0.1);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.quick-action-btn:hover {
+  background: #10B981;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #10B981, #059669);
+  transition: width 0.1s ease;
+  z-index: 1002;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .top-bar {
+    padding: 1rem 0; /* Increase padding for better mobile spacing */
+  }
+
   .top-bar-container {
     flex-direction: column;
     gap: 1rem;
@@ -606,6 +927,10 @@ onUnmounted(() => {
 }
 
 @media (max-width: 480px) {
+  .top-bar {
+    padding: 1.5rem 0; /* Even more padding for small mobile */
+  }
+
   .contact-info {
     flex-direction: column;
     gap: 0.5rem;
@@ -631,6 +956,229 @@ onUnmounted(() => {
 
   .navbar {
     height: 60px;
+  }
+
+  .mobile-nav-header {
+    padding: 1rem 1.5rem;
+  }
+
+  .mobile-nav-link {
+    padding: 1rem 1.5rem;
+  }
+
+  .mobile-nav-footer {
+    padding: 1rem 1.5rem;
+  }
+
+  .mobile-quick-actions {
+    flex-direction: column;
+  }
+}
+
+/* Dark mode styles */
+:global(.dark) .navbar-scrolled {
+  background: rgba(17, 24, 39, 0.95);
+}
+
+:global(.dark) .nav-link {
+  color: #f9fafb;
+}
+
+:global(.dark) .nav-link:hover,
+:global(.dark) .nav-link.router-link-active {
+  background: rgba(16, 185, 129, 0.2);
+}
+
+:global(.dark) .mobile-nav-header,
+:global(.dark) .mobile-nav-links,
+:global(.dark) .mobile-nav-footer {
+  background: #1f2937;
+}
+
+:global(.dark) .mobile-nav-header h3 {
+  color: #f9fafb;
+}
+
+:global(.dark) .mobile-nav-link {
+  color: #f9fafb;
+  border-bottom-color: rgba(16, 185, 129, 0.1);
+}
+
+:global(.dark) .mobile-nav-link:hover {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+:global(.dark) .mobile-nav-desc {
+  color: #d1d5db;
+}
+
+:global(.dark) .mobile-close-btn {
+  color: #9ca3af;
+}
+
+:global(.dark) .mobile-close-btn:hover {
+  color: #10B981;
+}
+
+:global(.dark) .mobile-menu-toggle span {
+  background: #f9fafb;
+}
+
+/* Animation keyframes */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Enhanced mobile animations */
+.mobile-nav-link {
+  animation: slideInFromBottom 0.4s ease forwards;
+  animation-delay: calc(var(--index, 0) * 0.1s);
+  opacity: 0;
+}
+
+.mobile-nav-link:nth-child(1) { --index: 1; }
+.mobile-nav-link:nth-child(2) { --index: 2; }
+.mobile-nav-link:nth-child(3) { --index: 3; }
+
+/* Hover effects for desktop */
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.nav-link:hover::before {
+  opacity: 1;
+}
+
+/* Enhanced CTA button effects */
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+}
+
+.cta-button:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Mobile menu backdrop animation */
+.mobile-nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.mobile-nav-open::before {
+  opacity: 1;
+}
+
+/* Enhanced scroll progress */
+.scroll-progress {
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* Focus states for accessibility */
+.nav-link:focus,
+.cta-button:focus,
+.mobile-menu-toggle:focus,
+.mobile-nav-link:focus,
+.quick-action-btn:focus {
+  outline: 2px solid #10B981;
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .navbar-wrapper,
+  .navbar,
+  .nav-link,
+  .cta-button,
+  .mobile-nav,
+  .mobile-nav-link,
+  .logo-icon,
+  .nav-hover-effect,
+  .scroll-progress {
+    transition: none;
+    animation: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .navbar-scrolled {
+    background: white;
+  }
+
+  .nav-link {
+    border: 1px solid transparent;
+  }
+
+  .nav-link:hover,
+  .nav-link.router-link-active {
+    border-color: #10B981;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar-wrapper {
+    position: static;
+    transform: none;
+  }
+
+  .mobile-nav {
+    display: none;
   }
 }
 </style>

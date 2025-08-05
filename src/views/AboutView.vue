@@ -2,7 +2,7 @@
   <div class="about">
     <AppLayout>
       <!-- Hero Section -->
-      <section class="about-hero">
+      <section class="about-hero page-hero">
         <div class="hero-bg">
           <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80" alt="About Hero Background" />
           <div class="hero-overlay"></div>
@@ -374,7 +374,7 @@ onMounted(() => {
 /* Hero Section */
 .about-hero {
   position: relative;
-  min-height: calc(100vh - 118px);
+  min-height: 100vh; /* Use full viewport height since spacing is handled by AppLayout */
   display: flex;
   align-items: center;
   justify-content: center;

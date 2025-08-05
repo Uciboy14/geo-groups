@@ -2,7 +2,7 @@
   <div class="home">
     <AppLayout>
       <!-- Hero Section -->
-      <section class="hero-section">
+      <section class="hero-section page-hero">
         <div class="hero-bg">
           <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80" alt="Hero Background" />
           <div class="hero-overlay"></div>
@@ -564,20 +564,68 @@ onUnmounted(() => {
   margin: 0 auto;
 }
 
-/* Hero Section */
+/* Hero Section - Fixed for new navbar */
 .hero-section {
   position: relative;
-  min-height: calc(100vh - 118px); /* Subtract navbar height (48px + 70px) */
+  min-height: 100vh; /* Use full viewport height since spacing is handled by AppLayout */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  margin-top: 0; /* Remove any top margin */
-  padding-top: 0; /* Remove top padding */
+  margin-top: 0;
+  padding-top: 0;
   padding-bottom: 4rem;
 }
 
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: calc(100vh - 160px); /* Account for navbar height */
+    padding-top: 2rem; /* Add more top padding for mobile */
+    margin-top: 0;
+  }
+
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: calc(100vh - 200px); /* Account for navbar height */
+    padding-top: 1.5rem;
+    margin-top: 0;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-btn {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Hero Section */
 .hero-bg {
   position: absolute;
   top: 0; /* Start from the very top */
@@ -1535,7 +1583,7 @@ onUnmounted(() => {
     font-size: 2.5rem;
   }
   .hero-section {
-    min-height: calc(100vh - 190px); /* Adjusted for mobile navbar height */
+    min-height: 100vh; /* Use full viewport height since spacing is handled by AppLayout */
   }
   .hero-content {
     padding: 0 1rem;
@@ -1605,7 +1653,7 @@ onUnmounted(() => {
   }
 
   .hero-section {
-    min-height: calc(100vh - 155px); /* Adjusted for mobile top bar (100px) + navbar (55px) */
+    min-height: 100vh; /* Use full viewport height since spacing is handled by AppLayout */
   }
 }
 
@@ -1623,7 +1671,7 @@ onUnmounted(() => {
   }
 
   .hero-section {
-    min-height: calc(100vh - 150px); /* Adjusted for mobile top bar (100px) + navbar (50px) */
+    min-height: 100vh; /* Use full viewport height since spacing is handled by AppLayout */
   }
 
   .about-section {
